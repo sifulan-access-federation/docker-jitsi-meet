@@ -17,8 +17,9 @@ RUN \
 	rm -rf /tmp/pkg /var/cache/apt
 
 RUN \
-	chmod a+x /usr/local/bin/certbot-auto && \
-	certbot-auto --noninteractive --install-only
+        chmod a+x /usr/local/bin/certbot-auto && \
+        certbot-auto --noninteractive --install-only && \
+        /opt/eff.org/certbot/venv/bin/pip install certbot-dns-cloudflare
 
 EXPOSE 80 443
 
